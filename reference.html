@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference · Y8 Chinese</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script src="app.js"></script>
+<script>renderHeader('reference');</script>
+
+<main class="container">
+  <h1 class="page-title">📋 Reference</h1>
+  <p class="page-subtitle">The 8 steps, the golden rules, the deadly errors. Open this when you forget how a step starts.</p>
+
+  <h2>The 8 steps of your pitch</h2>
+
+  <div class="ref-step">
+    <span class="num">①</span><span class="label">Greet</span><br>
+    <span class="pinyin">Zǎoshang hǎo. Lǎoshī hǎo. Dàjiā hǎo. Wǒ jiào ___.</span><br>
+    <span class="muted">Good morning. Hello teacher. Hello everyone. My name is ___.</span>
+  </div>
+
+  <p class="muted" style="margin:12px 0 6px"><strong>Repeat steps ② – ⑦ TWICE — once for each family member.</strong></p>
+
+  <div class="ref-step">
+    <span class="num">②</span><span class="label">Identify</span><br>
+    <span class="pinyin">Zhè shì wǒ de ___.</span><br>
+    <span class="muted">This is my ___. (bàba / māma / gēge / gǒu / māo …)</span>
+  </div>
+
+  <div class="ref-step">
+    <span class="num">③</span><span class="label">Name</span><br>
+    <span class="pinyin">Wǒ de ___ jiào ___.</span><br>
+    <span class="muted">My ___ is called ___.</span>
+  </div>
+
+  <div class="ref-step">
+    <span class="num">④</span><span class="label">Age</span> <span class="coral bold">⚠ no shì!</span><br>
+    <span class="pinyin">Wǒ de ___ ___ suì.</span><br>
+    <span class="muted">My ___ is ___ years old. (Never: <s>Wǒ de bàba shì 45 suì</s>)</span>
+  </div>
+
+  <div class="ref-step">
+    <span class="num">⑤</span><span class="label">Nationality</span> <span class="coral bold">⚠ rén required!</span><br>
+    <span class="pinyin">Tā shì ___ rén.</span><br>
+    <span class="muted">He / She is ___ (Chinese / Australian / American …). Never: <s>Tā shì Àodàlìyà</s>.</span>
+  </div>
+
+  <div class="ref-step">
+    <span class="num">⑥</span><span class="label">Description</span><br>
+    <span class="pinyin">Wǒ de ___ hěn ___, [hé / dànshì] hěn ___.</span><br>
+    <span class="muted">1 appearance + 1 personality. Link with hé (and) or dànshì (but). Always say <span class="coral bold">hěn</span> before the adjective!</span>
+  </div>
+
+  <div class="ref-step">
+    <span class="num">⑦</span><span class="label">Location</span><br>
+    <span class="pinyin">Tā zhù zài ___.</span><br>
+    <span class="muted">He / She lives in ___ (Xīní / Běijīng / Shànghǎi …).</span>
+  </div>
+
+  <div class="ref-step">
+    <span class="num">⑧</span><span class="label">Sign off</span><br>
+    <span class="pinyin">Xièxie. Zàijiàn!</span><br>
+    <span class="muted">Thank you. Goodbye!</span>
+  </div>
+
+  <div class="box-coral" style="margin-top:24px">
+    <h3 style="margin-top:0;color:var(--coral)">The 6 deadly errors — memorise!</h3>
+    <ol style="padding-left:22px;line-height:1.9">
+      <li><strong>No shì with age</strong> — say <span class="pinyin">___ suì</span>, never shì ___ suì.</li>
+      <li><strong>No shì before adjectives</strong> — use <span class="pinyin">hěn</span> instead.</li>
+      <li><strong>Always end nationality with rén (人)</strong>.</li>
+      <li><strong>Word order: hěn FIRST, then adjective</strong>. Never gāo hěn.</li>
+      <li><strong>Location needs zhù zài</strong> — never just zhù.</li>
+      <li><strong>No de between hěn and the adjective</strong>. Just hěn + adj.</li>
+    </ol>
+  </div>
+
+  <h2>Quick word banks</h2>
+
+  <h3>Family</h3>
+  <div class="chip-bank" id="famBank"></div>
+
+  <h3>Appearance</h3>
+  <div class="chip-bank" id="appBank"></div>
+
+  <h3>Personality</h3>
+  <div class="chip-bank" id="perBank"></div>
+
+  <h3>Nationalities</h3>
+  <div class="chip-bank" id="natBank"></div>
+
+  <h3>Cities</h3>
+  <div class="chip-bank" id="cityBank"></div>
+
+  <h3>Numbers / Ages</h3>
+  <div class="chip-bank" id="ageBank"></div>
+
+  <div class="box-blue" style="margin-top:24px">
+    <h3 style="margin-top:0">Marking — what your teacher is listening for (/30)</h3>
+    <p>Vocab range /6 · Grammatical accuracy /6 · Pronunciation &amp; tones /5 · Coherence &amp; fluency /5 · Persuasive delivery /5 · Multimodal slide /3</p>
+    <p class="muted" style="margin-top:8px">Pace, volume, eye contact = the difference between Sound and Extensive on persuasive delivery. Don't read flat — sell your family.</p>
+  </div>
+
+</main>
+
+<script>
+function renderRefBank(id, list) {
+  const bank = document.getElementById(id);
+  list.forEach(item => {
+    const span = document.createElement('span');
+    span.className = 'chip';
+    span.innerHTML = `${item.pinyin} <span class="chip-en">${item.en}</span>`;
+    bank.appendChild(span);
+  });
+}
+renderRefBank('famBank',  VOCAB.family);
+renderRefBank('appBank',  VOCAB.appearance);
+renderRefBank('perBank',  VOCAB.personality);
+renderRefBank('natBank',  VOCAB.countries);
+renderRefBank('cityBank', VOCAB.cities);
+renderRefBank('ageBank',  VOCAB.ages);
+</script>
+
+</body>
+</html>
