@@ -20,6 +20,7 @@
   <div class="box">
     <div class="muted" style="font-size:13px">English meaning</div>
     <div class="sb-target"><strong id="enTarget"></strong></div>
+    <div id="sentenceSpeakRow" style="margin-top:6px"></div>
 
     <h3 style="font-size:13px;color:var(--coral);margin-top:14px">Tap words in the right order:</h3>
     <div class="sb-built" id="builtBox"></div>
@@ -67,6 +68,21 @@ function loadSentence() {
   document.getElementById('feedback').className = 'sb-feedback';
   document.getElementById('feedback').textContent = '';
   document.getElementById('builtBox').classList.remove('correct', 'wrong');
+  // Inject speaker for the full Chinese sentence
+  const speakRow = document.getElementById('sentenceSpeakRow');
+  speakRow.innerHTML = '';
+  if (s.cn) {
+    const sp = makeSpeaker(s.cn);
+    if (sp) {
+      sp.classList.add('speak-inline');
+      speakRow.appendChild(sp);
+      const lbl = document.createElement('span');
+      lbl.className = 'muted';
+      lbl.style.fontSize = '12px';
+      lbl.textContent = 'Hear the full Chinese sentence';
+      speakRow.appendChild(lbl);
+    }
+  }
   render();
   updateProgress();
 }

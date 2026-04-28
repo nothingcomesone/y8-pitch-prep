@@ -93,13 +93,26 @@ function renderCard() {
   const c = deckCards[cardIndex];
   if (!c) return;
   const content = document.getElementById('cardContent');
+  content.innerHTML = '';
   if (showPinyin) {
-    content.innerHTML = `
-      <div class="face-pinyin">${c.pinyin}</div>
-      <div class="face-char">${c.char}</div>
-    `;
+    const pinyinDiv = document.createElement('div');
+    pinyinDiv.className = 'face-pinyin';
+    pinyinDiv.textContent = c.pinyin;
+    const charDiv = document.createElement('div');
+    charDiv.className = 'face-char';
+    charDiv.textContent = c.char;
+    content.appendChild(pinyinDiv);
+    content.appendChild(charDiv);
+    const speaker = makeSpeaker(c.char || c.pinyin, { size: 'lg' });
+    if (speaker) {
+      speaker.classList.add('face-speaker');
+      content.appendChild(speaker);
+    }
   } else {
-    content.innerHTML = `<div class="face-en">${c.en}</div>`;
+    const en = document.createElement('div');
+    en.className = 'face-en';
+    en.textContent = c.en;
+    content.appendChild(en);
   }
   document.getElementById('flipProgress').textContent = `Card ${cardIndex + 1} of ${deckCards.length}`;
 }

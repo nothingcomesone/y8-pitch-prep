@@ -333,6 +333,56 @@ input[type="text"]:focus, textarea:focus, select:focus {
 }
 .chip:hover .chip-en, .chip.selected .chip-en { color: rgba(255,255,255,0.85); }
 
+/* ============ Speaker / TTS button ============ */
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px; height: 26px;
+  padding: 0;
+  margin: 0 4px 0 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid rgba(0,0,0,0.08);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+  transition: transform 0.15s, background 0.15s, border-color 0.15s;
+}
+.speak-btn:hover {
+  background: white;
+  border-color: var(--coral);
+  transform: scale(1.08);
+}
+.speak-btn.speaking {
+  background: var(--coral);
+  border-color: var(--coral);
+  transform: scale(1.12);
+}
+.speak-btn-lg {
+  width: 36px; height: 36px;
+  font-size: 18px;
+  margin: 0 6px 0 0;
+}
+.face-speaker {
+  margin: 14px auto 0 !important;
+  display: flex !important;
+}
+.chip:hover .speak-btn, .chip.selected .speak-btn {
+  background: rgba(255,255,255,0.95);
+  border-color: rgba(255,255,255,0.5);
+}
+/* Inline speaker next to example sentences (reference page) */
+.speak-inline {
+  vertical-align: middle;
+  margin: 0 6px 0 0;
+}
+@media print {
+  .speak-btn { display: none !important; }
+}
+
 /* ============ Pitch builder ============ */
 .step {
   background: white;

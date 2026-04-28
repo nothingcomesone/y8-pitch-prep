@@ -122,7 +122,11 @@ function makeChip(item, group) {
   span.className = 'chip';
   span.dataset.group = group;
   span.dataset.pinyin = item.pinyin;
-  span.innerHTML = `${item.pinyin} <span class="chip-en">${item.en}</span>`;
+  const speaker = makeSpeaker(item.char || item.pinyin);
+  if (speaker) span.appendChild(speaker);
+  const label = document.createElement('span');
+  label.innerHTML = `${item.pinyin} <span class="chip-en">${item.en}</span>`;
+  span.appendChild(label);
   span.addEventListener('click', () => {
     pick(group, item);
   });
