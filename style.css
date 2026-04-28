@@ -380,8 +380,6 @@ input[type="text"]:focus, textarea:focus, select:focus {
   border-radius: var(--radius);
   padding: 22px;
   margin-top: 18px;
-  position: sticky;
-  bottom: 16px;
   box-shadow: var(--shadow-lg);
 }
 .pitch-preview h2 { color: var(--coral-light); margin: 0 0 10px; font-size: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
